@@ -1,12 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import {
+  BrowserRouter as Router,Switch,
+  Route,} 
+from 'react-router-dom';
+import AddressForm from "./components/address-form/address-form";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>AddressBook App</h1>
-    </div>
-  );
+export default class App extends React.Component{
+  render(){
+    return(
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route exact path=''>
+              <AddressForm />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    )
+  }
 }
 
-export default App;
+// export default App;

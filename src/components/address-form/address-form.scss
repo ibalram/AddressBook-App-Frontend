@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,500&display=swap');
+
+
+.body{
+    margin: 0;
+    height: 100%;
+}
+
+.header{
+    padding: 30px 0;
+    background-color: #ffffff;
+    a{text-decoration: none;}
+    .logo{
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 80%;
+        img{
+            width: 43px;
+            padding-right: 10px;
+        }
+    }
+    .logo-text{
+        font: normal normal bold 22px/25px Montserrat;
+        font-family: "Montserrat", sans-serif;
+        letter-spacing: 0px;
+        color: #008CFF;
+        text-transform: capitalize;
+    }
+    .book-text{
+        color: #42515F;
+    }
+}
+.header-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 25px;
+}
+
+.form-content{
+    min-height: calc(100% - 80px);
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    .form{
+        margin-top: 30px;
+        width: 55%;
+        background: #ffffff 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border: 0px solid #f5f5f5;
+        border-radius: 8px;
+        opacity: 1;
+        .form-head{
+            border-radius: 8px 8px 0px 0px;
+            background: #008CFF;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            font: normal normal 28px/37px Roboto;
+            letter-spacing: 0px;
+            text-transform: capitalize;
+            padding: 34px 60px;
+        }
+        .form-body{
+            padding: 44px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .row-content{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            margin-bottom: 5px;
+            align-items: left;
+            border: 0px solid green;
+            input{
+                height: 30px;
+            }
+            textarea{
+                height: 70px;
+            }
+        }
+        input,textarea{
+            width: 100%;
+            padding: 7.5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        label{
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+        .row-col-content{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            div{
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                flex-basis: 100px;
+                flex-wrap: wrap;
+                select{
+                    padding: 12px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    resize: vertical;
+                    font: normal normal normal 16px Roboto;
+                    letter-spacing: 0px; 
+                    color: #42515f;
+                    background-color: transparent;
+                }
+            }
+        }
+        .button-parent{
+            width: 80%;
+            display: flex;
+            flex-direction: row-reverse;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            align-items: right;
+        }
+        .button{
+            margin-left: 40px;
+            margin-top: 20px;
+            font: normal normal normal 20px/26px Roboto;
+            letter-spacing: 0px;
+            color: #42515F;
+            opacity: 1;
+            border-radius: 5px 5px 5px 5px;
+            min-width: 140px;
+            padding: 7px 7px;
+            border: 1px solid#969696;
+            cursor: pointer;
+            background-color: #E2E2E2;
+        }
+        .add-button:hover {
+            background: #008CFF;
+            color: #FFFFFF;
+            font-weight: 300;
+            border: 1px solid #969696;
+        }
+
+        .reset-button:hover{
+            background: #707070;
+            color: #FFFFFF;
+            font-weight: 300;
+            border: 1px solid #969696;
+        }
+    }
+}
+
+
+// .form-content{
+//     min-height: calc(100% -80px);
+//     background-color: #f7f7f7;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     border: 0px solid green;
+//     .form-head{
+//         margin-top: 25px;
+//         // margin-bottom: 35px;
+//         width: 65%;
+//         padding: 44px 60px;
+//         background: #ffffff 0% 0% no-repeat padding-box;
+//         box-shadow: 0px 3px 6px #00000029;
+//         border: 1px solid #f5f5f5;
+//         border-radius: 8px 8px 0px 0px;
+//         opacity: 1;
+        
+//         font: normal normal bold 24px/37px Roboto;
+//         letter-spacing: 0px;
+//         color: #42515f;
+//         text-transform: capitalize;
+//         background-color: #008CFF;
+//         // padding: 60PX;
+//         // padding-bottom: 20px;
+//     } 
+//     .form{
+//         // margin-top: 25px;
+//         margin-bottom: 35px;
+//         width: 65%;
+//         padding: 44px 60px;
+//         background: #ffffff 0% 0% no-repeat padding-box;
+//         box-shadow: 0px 3px 6px #00000029;
+//         border: 1px solid #f5f5f5;
+//         border-radius: 0px 0px 8px 8px;
+//         opacity: 1;
+//         .row-content{
+//             display: flex;
+//             flex-direction: row;
+//             margin-bottom: 10px;
+//             align-items: center;
+//             border: 0px solid green;
+//         }
+//         .label{
+//             min-width: 140px;
+//         }
+//         label{
+//             padding: 12px 12px 12px 0;
+//             display: inline-block;
+//         }
+//     }
+// }
