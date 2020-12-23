@@ -35,6 +35,42 @@
       "state": "Delhi",
       "zip": "453627",
       "id": 4
+    },
+    {
+      "fullName": "Ssd",
+      "address": "sds",
+      "phoneNumber": "sad",
+      "city": "Delhi",
+      "state": "Rajasthan",
+      "zip": "dsdsd",
+      "id": 5
+    },
+    {
+      "fullName": "Bal",
+      "address": "Hiii",
+      "phoneNumber": "12 1212121212",
+      "city": "Jaipur",
+      "state": "",
+      "zip": "122323",
+      "id": 6
+    },
+    {
+      "fullName": "Bal",
+      "address": "Hiii",
+      "phoneNumber": "12 1212121212",
+      "city": "Jaipur",
+      "state": "",
+      "zip": "122323",
+      "id": 7
+    },
+    {
+      "fullName": "Bal",
+      "address": "Hiii",
+      "phoneNumber": "12 1212121212",
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "zip": "122323",
+      "id": 8
     }
   ]
 }

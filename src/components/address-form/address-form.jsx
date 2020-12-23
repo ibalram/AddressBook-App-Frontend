@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import AddressBookService from '../../services/addressbook-service';
 import './address-form.scss';
-
+import Validator from '../../services/validator-service';
 const AddressForm = (props) => {
     const addressBookService = new AddressBookService();
+    const validator = new Validator();
+    const namePattern = RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
     const initialValue = {
         fullName: '',
         phoneNumber: '',
@@ -26,7 +28,10 @@ const AddressForm = (props) => {
     const [formValue, setForm] = useState(initialValue)
 
     const changeValue = (event) => {
-        setForm({...formValue, [event.target.name]: event.target.value});
+        const {name, value} = event.target;
+        let error=formValue.error;
+        error = {...error,[name]:validator.validate(name, value)};
+        setForm({...formValue, [name]: value, error: error});
     }
 
     const validData = async()=>{
@@ -38,38 +43,22 @@ const AddressForm = (props) => {
             state: '',
             zip: ''
         }
+        const ls = error;
         let isError = false;
-        if (formValue.fullName.length<1){
-            error.fullName='Name is required field';
-            isError=true;
-        }
-        if (formValue.address.length<1){
-            error.address='Address is required field';
-            isError=true;
-        }
-        if (formValue.phoneNumber.length<1){
-            error.phoneNumber='Phone number is required field';
-            isError=true;
-        }
-        if (formValue.city.length<1){
-            error.city='City is required field';
-            isError=true;
-        }
-        if (formValue.state.length<1){
-            error.state='State is required field';
-            isError=true;
-        }
-        if (formValue.zip.length<1){
-            error.zip='Zip code is required field';
-            isError=true;
-        }
-        await setForm({...formValue, error:error})
+        Object.keys(ls).forEach(
+            (val) => error={...error, [val]:validator.validate(val, formValue[val])}
+        );
+        Object.values(error).forEach(
+            (val) => isError=isError||val.length>0
+        );
+        await setForm({...formValue, error:error});
         return isError;
     }
     const save = async (event) => {
         event.preventDefault();
         if(await validData()){
-            console.log('error', formValue);
+            alert("Error: Invalid form values");
+            console.log('Error', formValue);
             return ;
         }
         let object ={
@@ -81,7 +70,7 @@ const AddressForm = (props) => {
             zip: formValue.zip
         }
         addressBookService.addPerson(object).then(data =>{
-            alert("Person added successfully");
+            alert("Success: Person added successfully");
             console.log("Person added successfully");
             props.history.push('');
         }).catch(err => console.log(err));
@@ -89,7 +78,7 @@ const AddressForm = (props) => {
 
     const reset = () =>{
         setForm({ ...initialValue, id: formValue.id, isUpdate: formValue.isUpdate});
-        console.log(formValue);
+        // console.log(formValue);
     }
     return (
         <div className="body">
@@ -156,7 +145,7 @@ const AddressForm = (props) => {
                         </div>
                         <div className="button-parent">
                             <div className="submit-reset-button">
-                                <button type="submit" className="button add-button" >Add</button>
+                                <button type="submit" disabled={formValue.submitDisable} className="button add-button" >Add</button>
                                 <button type="reset" className="button reset-button">Reset</button>
                             </div>
                         </div>
