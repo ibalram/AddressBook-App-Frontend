@@ -1,9 +1,9 @@
 import config from '../config/config';
-const axios = require('axios').default;
+import axiosService from './axios-service';
 
 export default class AddressBookSerivce{
     baseUrl = config.baseUrl;
     addPerson(data){
-        return axios.post(`${this.baseUrl}/addressbook`, data)
+        return axiosService.postService(`${this.baseUrl}/addressbook`, data);
     }
 }
