@@ -1,3 +1,31 @@
 {
-    "addressbook":[]
+  "addressbook": [
+    {
+      "fullName": "Balram Singh",
+      "address": "No location",
+      "phoneNumber": "9469091234",
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "zip": "123456",
+      "id": 1
+    },
+    {
+      "fullName": "Balram Singh",
+      "address": "No location",
+      "phoneNumber": "9469091234",
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "zip": "123456",
+      "id": 2
+    },
+    {
+      "fullName": "Akshit Singh",
+      "address": "no address",
+      "phoneNumber": "9469096543",
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "zip": "654321",
+      "id": 3
+    }
+  ]
 }
