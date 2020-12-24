@@ -2,7 +2,7 @@ export default class Validator{
     namePattern = RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
     addressPattern = RegExp("^[a-zA-Z0-9-, ]+$");
     phonePattern = RegExp("(^[0-9]{1,}[ ][1-9][0-9]{9}$)|(^[1-9][0-9]{9}$)");
-    zipPattern = RegExp("^[0-9]{2,}$");
+    zipPattern = RegExp("^[0-9]{6,}$");
 
     validateName(name){
         return this.namePattern.test(name)?"":"Name is Invalid";

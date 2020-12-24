@@ -2,7 +2,7 @@
   "addressbook": [
     {
       "fullName": "Balram Singh",
-      "address": "No location",
+      "address": "Agra Road, Delhi Road, Mumbai Road, Jaipur",
       "phoneNumber": "9469091234",
       "city": "Jaipur",
       "state": "Rajasthan",
@@ -11,7 +11,7 @@
     },
     {
       "fullName": "Balram Singh",
-      "address": "No location",
+      "address": "Agra Road, Delhi Road, Mumbai Road, Jaipur",
       "phoneNumber": "9469091234",
       "city": "Jaipur",
       "state": "Rajasthan",
@@ -20,7 +20,7 @@
     },
     {
       "fullName": "Akshit Singh",
-      "address": "no address",
+      "address": "Agra Road, Delhi Road, Mumbai Road, Jaipur",
       "phoneNumber": "9469096543",
       "city": "Jaipur",
       "state": "Rajasthan",
@@ -29,7 +29,7 @@
     },
     {
       "fullName": "Amrita",
-      "address": "asdasd",
+      "address": "Agra Road, Delhi Road, Mumbai Road, Jaipur",
       "phoneNumber": "9812345678",
       "city": "Delhi",
       "state": "Delhi",
@@ -37,40 +37,22 @@
       "id": 4
     },
     {
-      "fullName": "Ssd",
-      "address": "sds",
-      "phoneNumber": "sad",
-      "city": "Delhi",
+      "fullName": "Bal",
+      "address": "Agra Road, Delhi Road, Mumbai Road, Jaipur",
+      "phoneNumber": "12 1212121212",
+      "city": "Jaipur",
       "state": "Rajasthan",
-      "zip": "dsdsd",
+      "zip": "122323",
       "id": 5
     },
     {
-      "fullName": "Bal",
-      "address": "Hiii",
-      "phoneNumber": "12 1212121212",
-      "city": "Jaipur",
-      "state": "",
-      "zip": "122323",
-      "id": 6
-    },
-    {
-      "fullName": "Bal",
-      "address": "Hiii",
-      "phoneNumber": "12 1212121212",
-      "city": "Jaipur",
-      "state": "",
-      "zip": "122323",
-      "id": 7
-    },
-    {
-      "fullName": "Bal",
-      "address": "Hiii",
-      "phoneNumber": "12 1212121212",
+      "fullName": "Balram SIngh",
+      "address": "Any",
+      "phoneNumber": "9191919191",
       "city": "Jaipur",
       "state": "Rajasthan",
-      "zip": "122323",
-      "id": 8
+      "zip": "123456",
+      "id": 6
     }
   ]
 }

@@ -6,4 +6,7 @@ export default class AddressBookSerivce{
     addPerson(data){
         return axiosService.postService(`${this.baseUrl}/addressbook`, data);
     }
+    getAllPersons(){
+        return axiosService.getService(`${this.baseUrl}/addressbook`);
+    }
 }

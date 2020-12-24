@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import AddressBookService from '../../services/addressbook-service';
 import './address-form.scss';
 import Validator from '../../services/validator-service';
 const AddressForm = (props) => {
     const addressBookService = new AddressBookService();
     const validator = new Validator();
-    const namePattern = RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
     const initialValue = {
         fullName: '',
         phoneNumber: '',
