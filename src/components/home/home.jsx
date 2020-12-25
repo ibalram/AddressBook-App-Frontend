@@ -23,11 +23,13 @@ class Home extends React.Component{
         }).catch(err => console.log(err));
     }
     remove = (id)=>{
-        this.addressBookService.deletePersonDetails(id).then(data=>{
-            alert("Success: Deleted Successfully")
-            console.log("Success: Deleted Successfully");
-            window.location.reload();
-        }).catch(err=>alert("Error: "+err));
+        if (window.confirm("Are you sure to delete it? It is irreversible process.")){
+            this.addressBookService.deletePersonDetails(id).then(data=>{
+                alert("Success: Deleted Successfully")
+                console.log("Success: Deleted Successfully");
+                window.location.reload();
+            }).catch(err=>alert("Error: "+err));
+        }
     }
     render(){
         return (
@@ -76,11 +78,11 @@ class Home extends React.Component{
                                         <td>{person.zip}</td>
                                         <td>{person.phoneNumber}</td>
                                         <td>
-                                            <img id={person.id} style={{paddingRight: '10px'}} onClick={()=>this.remove(person.id)} src="/assets/icons/delete-black-18dp.svg" alt="delete" />
+                                            <img id={person.id} style={{marginRight: '10px'}} className="delete-icon" onClick={()=>this.remove(person.id)} src="/assets/icons/delete-black-18dp.svg" alt="delete" />
                                             <Link to={{
                                                 pathname: '/person-form',
                                                 state: ["update", person]
-                                            }}><img id={person.id} style={{paddingLeft: '10px'}} src="/assets/icons/create-black-18dp.svg" alt="edit" /></Link>
+                                            }}><img id={person.id} style={{marginLeft: '10px'}} className="edit-icon" src="/assets/icons/create-black-18dp.svg" alt="edit" /></Link>
                                         </td>
                                     </tr>
                                 ))}

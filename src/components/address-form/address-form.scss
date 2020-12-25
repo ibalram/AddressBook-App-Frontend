@@ -64,13 +64,25 @@
             background: #008CFF;
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
             color: #FFFFFF;
             font: normal normal 28px/37px Roboto;
             letter-spacing: 0px;
             text-transform: capitalize;
             padding: 34px 60px;
+            div{
+                text-align: center;
+                flex-grow: 1;
+
+            }
+            .cancel-button{
+                flex-grow: 0;
+                img{
+                    display: flex;
+                    width: 40px;
+                }
+            }
         }
         .form-body{
             padding: 44px 60px;
@@ -111,9 +123,7 @@
             div{
                 display: flex;
                 flex-direction: column;
-                flex-grow: 1;
-                flex-basis: 100px;
-                flex-wrap: wrap;
+                flex: 1 1 0px;
                 select{
                     padding: 12px;
                     border: 1px solid #ccc;
@@ -123,6 +133,7 @@
                     letter-spacing: 0px; 
                     color: #42515f;
                     background-color: transparent;
+                    margin-right: 10px;
                 }
                 div{
                     max-height: 20px;
