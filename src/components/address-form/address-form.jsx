@@ -6,7 +6,7 @@ import Validator from '../../services/validator-service';
 const AddressForm = (props) => {
     const addressBookService = new AddressBookService();
     const validator = new Validator();
-    const initialValue = {
+    let initialValue = {
         fullName: '',
         phoneNumber: '',
         address: '',
@@ -24,6 +24,11 @@ const AddressForm = (props) => {
         id: '',
         isUpdate: false
     }
+
+    if (props.location.state && props.location.state[0]==='update'){
+        initialValue = {...initialValue, ...props.location.state[1], isUpdate: true};
+    };
+
     const [formValue, setForm] = useState(initialValue)
 
     const changeValue = (event) => {
@@ -68,11 +73,20 @@ const AddressForm = (props) => {
             state: formValue.state,
             zip: formValue.zip
         }
-        addressBookService.addPerson(object).then(data =>{
+        if (formValue.isUpdate){
+            addressBookService.updatePersonDetails(formValue.id, object).then(data=>{
+                alert("Success: Person details update successfully");
+                console.log("Person details updated successfully");
+                props.history.push('');
+            }).catch(err => console.log(err));
+        }
+        else{
+            addressBookService.addPerson(object).then(data =>{
             alert("Success: Person added successfully");
             console.log("Person added successfully");
             props.history.push('');
-        }).catch(err => console.log(err));
+            }).catch(err => console.log(err));
+        }
     }
 
     const reset = () =>{
@@ -118,7 +132,7 @@ const AddressForm = (props) => {
                         <div className='row-content row-col-content'>
                             <div>
                                 <label>City</label>
-                                <select name='city' defaultValue='' onChange={changeValue}>
+                                <select name='city' defaultValue={formValue.city} onChange={changeValue}>
                                     <option value="" hidden>Select City</option>
                                     <option value='Jaipur'>Jaipur</option>
                                     <option value='Delhi'>Delhi</option>
@@ -128,7 +142,7 @@ const AddressForm = (props) => {
 
                             <div>
                                 <label>State</label>
-                                <select name= 'state' defaultValue='' onChange={changeValue}>
+                                <select name= 'state' defaultValue={formValue.state} onChange={changeValue}>
                                     <option value="" hidden>Select State</option>
                                     <option value='Rajasthan'>Rajasthan</option>
                                     <option value='Delhi'>Delhi</option>
@@ -144,7 +158,7 @@ const AddressForm = (props) => {
                         </div>
                         <div className="button-parent">
                             <div className="submit-reset-button">
-                                <button type="submit" disabled={formValue.submitDisable} className="button add-button" >Add</button>
+                                <button type="submit" disabled={formValue.submitDisable} className="button add-button" >{formValue.isUpdate?'Update':'Add'}</button>
                                 <button type="reset" className="button reset-button">Reset</button>
                             </div>
                         </div>
