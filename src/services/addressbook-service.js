@@ -4,15 +4,15 @@ import axiosService from './axios-service';
 export default class AddressBookSerivce{
     baseUrl = config.baseUrl;
     addPerson(data){
-        return axiosService.postService(`${this.baseUrl}/addressbook`, data);
+        return axiosService.postService(`${this.baseUrl}/create`, data);
     }
     getAllPersons(){
-        return axiosService.getService(`${this.baseUrl}/addressbook`);
+        return axiosService.getService(`${this.baseUrl}/`);
     }
     deletePersonDetails(id){
-        return axiosService.deleteService(`${this.baseUrl}/addressbook/${id}`);
+        return axiosService.deleteService(`${this.baseUrl}/delete/${id}`);
     }
     updatePersonDetails(id, data){
-        return axiosService.updateService(`${this.baseUrl}/addressbook/${id}`, data);
+        return axiosService.updateService(`${this.baseUrl}/update/${id}`, data);
     }
 }

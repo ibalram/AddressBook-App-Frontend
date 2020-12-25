@@ -16,8 +16,10 @@ class Home extends React.Component{
     }
     getAllPersonDetails(){
         this.addressBookService.getAllPersons().then(data=>{
-            console.log(data.data);
-            this.setState({personArray: data.data});
+            // console.log(data.data);
+            // this.setState({personArray: data.data});
+            console.log(data.data.data);
+            this.setState({personArray: data.data.data});
         }).catch(err => console.log(err));
     }
     remove = (id)=>{
