@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import AddressBookService from '../../services/addressbook-service';
 import './address-form.scss';
 import Validator from '../../services/validator-service';
+import stateCityService from '../../services/state-city-service';
+
 const AddressForm = (props) => {
     const addressBookService = new AddressBookService();
     const validator = new Validator();
@@ -22,11 +24,13 @@ const AddressForm = (props) => {
             zip: ''
         },
         id: '',
-        isUpdate: false
+        isUpdate: false,
+        statesObject: stateCityService.getStatesObject(),
+        cities: []
     }
 
     if (props.location.state && props.location.state[0]==='update'){
-        initialValue = {...initialValue, ...props.location.state[1], isUpdate: true};
+        initialValue = {...initialValue, ...props.location.state[1], isUpdate: true, cities: initialValue.statesObject[props.location.state[1].state]};
     };
 
     const [formValue, setForm] = useState(initialValue)
@@ -36,6 +40,12 @@ const AddressForm = (props) => {
         let error=formValue.error;
         error = {...error,[name]:validator.validate(name, value)};
         setForm({...formValue, [name]: value, error: error});
+    }
+    const selectStateHandler=(event)=>{
+		setForm({...formValue, state: event.target.value, cities : formValue.statesObject[event.target.value]});
+    }
+    const selectCityHandler=(event)=>{
+        setForm({...formValue, city: event.target.value});
     }
 
     const validData = async()=>{
@@ -108,8 +118,11 @@ const AddressForm = (props) => {
             </header>
 
             <div className="form-content">
-                <form className="form" onSubmit={save} onReset={reset}>
-                    <div className="form-head">PERSON ADDRESS FORM</div>
+                <form className="form" onSubmit={save} onReset={reset} autoComplete="off">
+                    <div className="form-head">
+                        <div>PERSON ADDRESS FORM</div>
+                        <div className="cancel-button"><Link to='/'><img src="/assets/icons/cancel.png" /></Link></div>
+                    </div>
                     <div className="form-body">
                         <div className='row-content'>
                             <label>Full Name</label>
@@ -131,23 +144,21 @@ const AddressForm = (props) => {
 
                         <div className='row-content row-col-content'>
                             <div>
-                                <label>City</label>
-                                <select name='city' defaultValue={formValue.city} onChange={changeValue}>
-                                    <option value="" hidden>Select City</option>
-                                    <option value='Jaipur'>Jaipur</option>
-                                    <option value='Delhi'>Delhi</option>
+                                <label>State</label>
+                                <select name= 'state' defaultValue={formValue.state} onChange={selectStateHandler}>
+                                    <option value="" hidden>Select State</option>
+                                    {Object.keys(formValue.statesObject).map(state=><option key={state} value={state}>{state}</option>)}
                                 </select>
-                                {formValue.error.city && <div className="error">{formValue.error.city}</div>}
+                                {formValue.error.state && <div className="error">{formValue.error.state}</div>}
                             </div>
 
                             <div>
-                                <label>State</label>
-                                <select name= 'state' defaultValue={formValue.state} onChange={changeValue}>
-                                    <option value="" hidden>Select State</option>
-                                    <option value='Rajasthan'>Rajasthan</option>
-                                    <option value='Delhi'>Delhi</option>
+                                <label>City</label>
+                                <select name='city' defaultValue={formValue.city} onChange={selectCityHandler}>
+                                    <option value="" hidden>Select City</option>
+                                    {formValue.cities.map(city=><option key={city} value={city}>{city}</option>)}
                                 </select>
-                                {formValue.error.state && <div className="error">{formValue.error.state}</div>}
+                                {formValue.error.city && <div className="error">{formValue.error.city}</div>}
                             </div>
                             
                             <div>
