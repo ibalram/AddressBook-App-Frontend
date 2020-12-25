@@ -9,4 +9,7 @@ export default class AddressBookSerivce{
     getAllPersons(){
         return axiosService.getService(`${this.baseUrl}/addressbook`);
     }
+    deletePersonDetails(id){
+        return axiosService.deleteService(`${this.baseUrl}/addressbook/${id}`);
+    }
 }

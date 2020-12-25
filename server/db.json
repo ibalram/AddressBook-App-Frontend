@@ -35,24 +35,6 @@
       "state": "Delhi",
       "zip": "453627",
       "id": 4
-    },
-    {
-      "fullName": "Bal",
-      "address": "Agra Road, Delhi Road, Mumbai Road, Jaipur",
-      "phoneNumber": "12 1212121212",
-      "city": "Jaipur",
-      "state": "Rajasthan",
-      "zip": "122323",
-      "id": 5
-    },
-    {
-      "fullName": "Balram SIngh",
-      "address": "Any",
-      "phoneNumber": "9191919191",
-      "city": "Jaipur",
-      "state": "Rajasthan",
-      "zip": "123456",
-      "id": 6
     }
   ]
 }

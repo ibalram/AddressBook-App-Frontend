@@ -20,6 +20,13 @@ class Home extends React.Component{
             this.setState({personArray: data.data});
         }).catch(err => console.log(err));
     }
+    remove = (id)=>{
+        this.addressBookService.deletePersonDetails(id).then(data=>{
+            alert("Success: Deleted Successfully")
+            console.log("Success: Deleted Successfully");
+            window.location.reload();
+        }).catch(err=>alert("Error: "+err));
+    }
     render(){
         return (
             <div className="body">
@@ -67,7 +74,7 @@ class Home extends React.Component{
                                         <td>{person.zip}</td>
                                         <td>{person.phoneNumber}</td>
                                         <td>
-                                            <img id={person.id} style={{paddingRight: '10px'}} src="/assets/icons/delete-black-18dp.svg" alt="delete" />
+                                            <img id={person.id} style={{paddingRight: '10px'}} onClick={()=>this.remove(person.id)} src="/assets/icons/delete-black-18dp.svg" alt="delete" />
                                             <Link to={{
                                                 pathname: '/person-form',
                                                 state: ["update", person]
