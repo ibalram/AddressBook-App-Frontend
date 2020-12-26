@@ -72,7 +72,6 @@ const AddressForm = (props) => {
         event.preventDefault();
         if(await validData()){
             alert("Error: Invalid form values");
-            console.log('Error', formValue);
             return ;
         }
         let object ={
@@ -86,22 +85,19 @@ const AddressForm = (props) => {
         if (formValue.isUpdate){
             addressBookService.updatePersonDetails(formValue.id, object).then(data=>{
                 alert("Success: Person details update successfully");
-                console.log("Person details updated successfully");
                 props.history.push('');
-            }).catch(err => console.log(err));
+            }).catch(err => alert(err));
         }
         else{
             addressBookService.addPerson(object).then(data =>{
-            alert("Success: Person added successfully");
-            console.log("Person added successfully");
-            props.history.push('');
-            }).catch(err => console.log(err));
+                alert("Success: Person added successfully");
+                props.history.push('');
+            }).catch(err => alert(err));
         }
     }
 
     const reset = () =>{
         setForm({ ...initialValue, id: formValue.id, isUpdate: formValue.isUpdate});
-        // console.log(formValue);
     }
     return (
         <div className="body">
@@ -121,7 +117,7 @@ const AddressForm = (props) => {
                 <form className="form" onSubmit={save} onReset={reset} autoComplete="off">
                     <div className="form-head">
                         <div>PERSON ADDRESS FORM</div>
-                        <div className="cancel-button"><Link to='/'><img src="/assets/icons/cancel.png" /></Link></div>
+                        <div className="cancel-button"><Link to='/'><img src="/assets/icons/cancel.png" alt="Cancel"/></Link></div>
                     </div>
                     <div className="form-body">
                         <div className='row-content'>

@@ -16,19 +16,16 @@ class Home extends React.Component{
     }
     getAllPersonDetails(){
         this.addressBookService.getAllPersons().then(data=>{
-            // console.log(data.data);
             // this.setState({personArray: data.data});
-            console.log(data.data.data);
             this.setState({personArray: data.data.data});
-        }).catch(err => console.log(err));
+        }).catch(err => alert(err));
     }
     remove = (id)=>{
         if (window.confirm("Are you sure to delete it? It is irreversible process.")){
             this.addressBookService.deletePersonDetails(id).then(data=>{
                 alert("Success: Deleted Successfully")
-                console.log("Success: Deleted Successfully");
                 window.location.reload();
-            }).catch(err=>alert("Error: "+err));
+            }).catch(err=>alert(err));
         }
     }
     render(){
@@ -82,7 +79,7 @@ class Home extends React.Component{
                                             <Link to={{
                                                 pathname: '/person-form',
                                                 state: ["update", person]
-                                            }}><img id={person.id} style={{marginLeft: '10px'}} className="edit-icon" src="/assets/icons/create-black-18dp.svg" alt="edit" /></Link>
+                                            }}><img id={person.id} style={{marginRight: '10px'}} className="edit-icon" src="/assets/icons/create-black-18dp.svg" alt="edit" /></Link>
                                         </td>
                                     </tr>
                                 ))}
