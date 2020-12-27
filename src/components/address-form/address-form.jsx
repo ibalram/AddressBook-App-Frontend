@@ -122,21 +122,27 @@ const AddressForm = (props) => {
                     <div className="form-body">
                         <div className='row-content'>
                             <label>Full Name</label>
-                            <input type="text" name="fullName" id="fullName" defaultValue={formValue.fullName} onChange={changeValue}></input>
+                            <div className="input-error-row">
+                                <input type="text" name="fullName" id="fullName" defaultValue={formValue.fullName} onChange={changeValue}></input>
+                                <div className="error">{formValue.error.fullName}</div>
+                            </div>
                         </div>
-                        <div className="error">{formValue.error.fullName}</div>
 
                         <div className='row-content'>
                             <label>Phone Number</label>
-                            <input type="text" name="phoneNumber" id="phoneNumber" defaultValue={formValue.phoneNumber} onChange={changeValue}></input>
+                            <div className="input-error-row">
+                                <input type="text" name="phoneNumber" id="phoneNumber" defaultValue={formValue.phoneNumber} onChange={changeValue}></input>
+                                <div className="error">{formValue.error.phoneNumber}</div>
+                            </div>
                         </div>
-                        <div className="error">{formValue.error.phoneNumber}</div>
-
                         <div className='row-content'>
                             <label>Address</label>
-                            <textarea type="text" name="address" id="address" defaultValue={formValue.address} onChange={changeValue}></textarea>
+                            <div className="input-error-row">
+                                <textarea type="text" name="address" id="address" defaultValue={formValue.address} onChange={changeValue}></textarea>
+                                <div className="error">{formValue.error.address}</div>
+                            </div>
                         </div>
-                        <div className="error">{formValue.error.address}</div>
+                        
 
                         <div className='row-content row-col-content'>
                             <div>
@@ -159,8 +165,10 @@ const AddressForm = (props) => {
                             
                             <div>
                                 <label>Zip Code</label>
+                                <div className="input-error-row">
                                 <input name='zip' type="text" defaultValue={formValue.zip} onChange={changeValue}></input>
-                                { formValue.error.zip && <div className="error">{formValue.error.zip}</div>}
+                                <div className="error">{formValue.error.zip}</div>
+                                </div>
                             </div>
                         </div>
                         <div className="button-parent">

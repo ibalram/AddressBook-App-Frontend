@@ -103,6 +103,11 @@
             textarea{
                 height: 70px;
             }
+            .input-error-row{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
         input,textarea{
             width: 100%;
@@ -129,6 +134,7 @@
                     border: 1px solid #ccc;
                     border-radius: 4px;
                     resize: vertical;
+                    max-width: 230px;
                     font: normal normal normal 16px Roboto;
                     letter-spacing: 0px; 
                     color: #42515f;
@@ -146,6 +152,7 @@
             font-size: 12px;
             font-style: italic;
             color: red;
+            max-width: 60px;
         }
         .button-parent{
             width: 80%;

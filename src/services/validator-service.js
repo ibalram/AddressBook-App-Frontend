@@ -5,16 +5,16 @@ export default class Validator{
     zipPattern = RegExp("^[0-9]{6,}$");
 
     validateName(name){
-        return this.namePattern.test(name)?"":"Name is Invalid";
+        return this.namePattern.test(name)?"":"Invalid Name";
     }
     validateAddress(address){
-        return this.addressPattern.test(address)?"":"Address is Invalid";
+        return this.addressPattern.test(address)?"":"Invalid Address";
     }
     validatePhoneNumber(phoneNumber){
-        return this.phonePattern.test(phoneNumber)?"":"Phone number is Invalid";
+        return this.phonePattern.test(phoneNumber)?"":"Invalid Phone Number";
     }
     validateZip(zip){
-        return this.zipPattern.test(zip)?"":"Zip code is Invalid";
+        return this.zipPattern.test(zip)?"":"Invalid Zip";
     }
     validate(name, value){
         switch(name){
@@ -27,7 +27,7 @@ export default class Validator{
             case "zip":
                 return this.validateZip(value);
             default:
-                return value.length>0?'':name+" is required field";
+                return value.length>0?'':name+" is required";
         }
     }
 }
